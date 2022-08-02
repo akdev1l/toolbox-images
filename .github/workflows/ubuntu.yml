@@ -9,8 +9,8 @@ on:
 
 env:
   REGISTRY_USER: ${{ github.actor }}
-  REGISTRY_PASSWORD: ${{ github.token }}
-  TOOLBOX_REPO: ghcr.io/${{ github.repository_owner }}/toolbox-images
+  REGISTRY_PASSWORD: ${{ secrets.DOCKERHUB_TOKEN }}
+  TOOLBOX_REPO: registry.hub.docker.com/${{ github.repository_owner }}
 
 jobs:
   publish-all:
