@@ -10,7 +10,10 @@ env:
   TOOLBOX_REPO: registry.hub.docker.com/${{ github.repository_owner }}
 
 jobs:
-  publish-22-04:
+  publish:
+    strategy:
+      matrix:
+        version: [22.04, 20.04]
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -22,4 +25,4 @@ jobs:
         registry: ${{ env.TOOLBOX_REPO }}
 
     - name: publish toolbox container images
-      run: ./util/publish.sh ubuntu/22.04
+      run: ./util/publish.sh ubuntu/${{ matrix.version }}
