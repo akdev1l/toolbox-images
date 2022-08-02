@@ -1,4 +1,4 @@
-name: build toolbox container images
+name: build ubuntu toolbox container images
 
 on:
   push:
@@ -10,7 +10,7 @@ env:
   TOOLBOX_REPO: registry.hub.docker.com/${{ github.repository_owner }}
 
 jobs:
-  publish-ubuntu:
+  publish-22-04:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3

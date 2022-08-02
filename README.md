@@ -11,10 +11,10 @@ feature parity with regard to toolboxes for distributions other than Fedora.
 
 ### How do I use this?
 
-You can use the images by doing `toolbox create -i ghcr.io/akdev1l/toolbox-images/${image_name}`, for example:
+You can use the images by doing `toolbox create -i docker.io/akdev1l/${image_name}`, for example:
 
 ```
-[akdev@canzuk toolbox-images]$ toolbox create -i ghcr.io/akdev1l/toolbox-images/ubuntu-toolbox:22.04                  
+[akdev@canzuk toolbox-images]$ toolbox create -i docker.io/akdev1l/ubuntu-toolbox:22.04                  
 Created container: ubuntu-toolbox-22.04                                                                               
 Enter with: toolbox enter ubuntu-toolbox-22.04                                                                        
 [akdev@canzuk toolbox-images]$ toolbox enter ubuntu-toolbox-22.04
