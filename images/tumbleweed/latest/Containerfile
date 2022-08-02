@@ -1,0 +1,5 @@
+FROM registry.opensuse.org/opensuse/toolbox:latest
+
+ENV NAME=tumbleweed-toolbox VERSION=latest
+
+RUN echo "%wheel ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/toolbox

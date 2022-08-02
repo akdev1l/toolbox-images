@@ -1,0 +1,16 @@
+FROM ubuntu
+
+ENV NAME=ubuntu-toolbox VERSION=22.04
+LABEL com.github.containers.toolbox="true"
+
+COPY README.md /
+
+COPY missing-docs /
+RUN apt-get update -qy && xargs -a missing-docs apt-get -qy install
+RUN rm /missing-docs
+
+COPY extra-packages /
+RUN apt-get update -qy && xargs -a extra-packages apt-get -qy install
+RUN rm /extra-packages
+
+RUN apt-get -y clean
