@@ -3,7 +3,6 @@ name: build toolbox container images
 on:
   push:
     branches: [ "master" ]
-    paths: ["images/archlinux/*"]
 
 env:
   REGISTRY_USER: ${{ github.actor }}

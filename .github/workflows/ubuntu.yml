@@ -3,7 +3,6 @@ name: build toolbox container images
 on:
   push:
     branches: [ "master" ]
-    paths: ["images/ubuntu/*"]
 
 env:
   REGISTRY_USER: ${{ github.actor }}
