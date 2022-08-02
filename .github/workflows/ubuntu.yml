@@ -10,7 +10,7 @@ on:
 env:
   REGISTRY_USER: ${{ github.actor }}
   REGISTRY_PASSWORD: ${{ github.token }}
-  IMAGE_REGISTRY: ghcr.io/${{ github.repository_owner }}/toolbox-images
+  TOOLBOX_REPO: ghcr.io/${{ github.repository_owner }}/toolbox-images
 
 jobs:
   publish-all:
@@ -22,7 +22,7 @@ jobs:
       with:
         username: ${{ env.REGISTRY_USER }}
         password: ${{ env.REGISTRY_PASSWORD }}
-        registry: ${{ env.IMAGE_REGISTRY }}
+        registry: ${{ env.TOOLBOX_REPO }}
 
     - name: publish toolbox container images
       run: ./util/publish.sh ubuntu/22.04

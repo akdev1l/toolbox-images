@@ -1,8 +1,8 @@
 #!/bin/bash
+set -x
 
 main() {
-    TOOLBOX_REPO="ghcr.io/akdev1l/toolbox-images"
-    image_name="${1}"
+    image_name="$(./util/build.sh "${1}" | awk '{print $2}')"
 
     podman tag "localhost/${image_name}" "${TOOLBOX_REPO}/${image_name}"
     podman push "${image_name}" "${TOOLBOX_REPO}/${image_name}"
