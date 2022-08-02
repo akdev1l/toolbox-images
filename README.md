@@ -19,3 +19,7 @@ Created container: ubuntu-toolbox-22.04
 Enter with: toolbox enter ubuntu-toolbox-22.04                                                                        
 [akdev@canzuk toolbox-images]$ toolbox enter ubuntu-toolbox-22.04
 ```
+
+### Prior Work
+
+1. [Original Containerfiles](https://github.com/MainKt/toolbox/tree/main/images) Thanks to [Main.kt](https://github.com/MainKt).
