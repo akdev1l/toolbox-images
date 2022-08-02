@@ -3,9 +3,7 @@ name: build toolbox container images
 on:
   push:
     branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
-
+    paths: ["images/*"]
 
 env:
   REGISTRY_USER: ${{ github.actor }}
@@ -13,7 +11,7 @@ env:
   TOOLBOX_REPO: registry.hub.docker.com/${{ github.repository_owner }}
 
 jobs:
-  publish-all:
+  publish-ubuntu:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
