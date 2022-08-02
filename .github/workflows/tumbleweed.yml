@@ -3,7 +3,7 @@ name: build toolbox container images
 on:
   push:
     branches: [ "master" ]
-    paths: ["images/ubuntu/*"]
+    paths: ["images/tumbleweed/*"]
 
 env:
   REGISTRY_USER: ${{ github.actor }}
@@ -23,4 +23,4 @@ jobs:
         registry: ${{ env.TOOLBOX_REPO }}
 
     - name: publish toolbox container images
-      run: ./util/publish.sh ubuntu/22.04
+      run: ./util/publish.sh tumbleweed/latest
