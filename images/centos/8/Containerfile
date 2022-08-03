@@ -1,0 +1,7 @@
+FROM quay.io/centos/centos:stream8
+
+ENV NAME=centos-toolbox VERSION=8
+LABEL com.github.containers.toolbox="true"
+
+RUN dnf install -y sudo /usr/sbin/capsh /usr/sbin/usermod bash
+COPY ./toolbox-sudo /etc/sudoers.d/toolbox-sudo

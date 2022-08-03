@@ -1,4 +1,4 @@
-name: build alpine toolbox container images
+name: build centos toolbox container images
 
 on:
   push:
@@ -13,7 +13,7 @@ jobs:
   publish:
     strategy:
       matrix:
-        version: [3.15, 3.16]
+        version: [8]
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -25,4 +25,4 @@ jobs:
         registry: ${{ env.TOOLBOX_REPO }}
 
     - name: publish toolbox container images
-      run: ./util/publish.sh alpine/${{ matrix.version }}
+      run: ./util/publish.sh centos/${{ matrix.version }}
