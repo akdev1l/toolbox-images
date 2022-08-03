@@ -1,0 +1,28 @@
+name: build kalilinux toolbox container images
+
+on:
+  push:
+    branches: [ "master" ]
+
+env:
+  REGISTRY_USER: ${{ github.actor }}
+  REGISTRY_PASSWORD: ${{ secrets.DOCKERHUB_TOKEN }}
+  TOOLBOX_REPO: registry.hub.docker.com/${{ github.repository_owner }}
+
+jobs:
+  publish:
+    strategy:
+      matrix:
+        version: [latest]
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Log in to ghcr.io
+      uses: redhat-actions/podman-login@v1
+      with:
+        username: ${{ env.REGISTRY_USER }}
+        password: ${{ env.REGISTRY_PASSWORD }}
+        registry: ${{ env.TOOLBOX_REPO }}
+
+    - name: publish toolbox container images
+      run: ./util/publish.sh kalilinux/${{ matrix.version }}

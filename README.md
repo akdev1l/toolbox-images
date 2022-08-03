@@ -5,9 +5,23 @@ feature parity with regard to toolboxes for distributions other than Fedora.
 
 ### Supported Distributions
 
-1. Ubuntu - `docker.io/akdev1l/ubuntu-toolbox:22.04`
-2. Arch Linux - `docker.io/akdev1l/archlinux-toolbox:latest`
-3. OpenSuSE Tumbleweed - `docker.io/akdev1l/tumbleweed-toolbox:latest`
+```
+.
+├── alpine
+│   ├── 3.15
+│   └── 3.16
+├── archlinux
+│   └── latest
+├── centos
+│   └── 8
+├── kalilinux
+│   └── latest
+├── tumbleweed
+│   └── latest
+└── ubuntu
+    ├── 20.04
+    └── 22.04
+```
 
 ![screenshot of toolboxes of different distros](docs/sample.png)
 

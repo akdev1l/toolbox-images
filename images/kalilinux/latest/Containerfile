@@ -1,0 +1,16 @@
+FROM docker.io/kalilinux/kali-rolling:latest
+
+ENV NAME=kalilinux-toolbox VERSION=latest
+LABEL com.github.containers.toolbox="true"
+
+COPY README.md /
+
+COPY missing-docs /
+RUN apt-get update -qy && xargs -a missing-docs apt-get -qy install
+RUN rm /missing-docs
+
+COPY extra-packages /
+RUN apt-get update -qy && xargs -a extra-packages apt-get -qy install
+RUN rm /extra-packages
+
+RUN apt-get -y clean
