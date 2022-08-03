@@ -10,3 +10,5 @@ COPY README.md /
 RUN emerge -qv sudo
 
 RUN rm -rf rm -f /var/tmp/portage/* /var/cache/distfiles/* /var/cache/binpkgs/*
+
+RUN echo "%wheel ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/toolbox-sudo
