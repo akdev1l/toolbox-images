@@ -1,0 +1,7 @@
+FROM alpine:3.15
+
+ENV NAME=alpine-toolbox VERSION=3.15
+LABEL com.github.containers.toolbox="true"
+
+RUN apk add sudo libcap shadow bash ncurses-terminfo && ln -s /etc/os-release /usr/lib/os-release 
+COPY ./toolbox-sudo /etc/sudoers.d/toolbox-sudo
