@@ -1,0 +1,14 @@
+FROM registry.hub.docker.com/gentoo/portage:latest
+FROM registry.hub.docker.com/gentoo/stage3:systemd
+COPY --from=portage /var/db/repos/gentoo /var/db/repos/gentoo
+
+ENV NAME=gentoo-toolbox VERSION=latest
+LABEL com.github.containers.toolbox="true"
+
+COPY README.md /
+
+RUN emerge -qv sudo
+
+RUN rm -rf rm -f /var/tmp/portage/* /var/cache/distfiles/* /var/cache/binpkgs/*
+
+RUN echo "%wheel ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/toolbox-sudo
