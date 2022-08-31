@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM ubuntu:22.04
 
 ENV NAME=ubuntu-toolbox VERSION=22.04
 LABEL com.github.containers.toolbox="true"

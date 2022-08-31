@@ -34,3 +34,4 @@ wget
 xauth
 xz-utils
 zip
+libnss-myhostname

@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM ubuntu:20.04
 
 ENV NAME=ubuntu-toolbox VERSION=20.04
 LABEL com.github.containers.toolbox="true"
@@ -6,11 +6,11 @@ LABEL com.github.containers.toolbox="true"
 COPY README.md /
 
 COPY missing-docs /
-RUN apt-get update -qy && xargs -a missing-docs apt-get -qy install
+RUN DEBIAN_FRONTEND=noninteractive apt-get update -qy && DEBIAN_FRONTEND=noninteractive xargs -a missing-docs apt-get -qy install
 RUN rm /missing-docs
 
 COPY extra-packages /
-RUN apt-get update -qy && xargs -a extra-packages apt-get -qy install
+RUN DEBIAN_FRONTEND=noninteractive apt-get update -qy && DEBIAN_FRONTEND=noninteractive xargs -a extra-packages apt-get -qy install
 RUN rm /extra-packages
 
 RUN apt-get -y clean
