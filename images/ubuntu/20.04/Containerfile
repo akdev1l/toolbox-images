@@ -13,4 +13,6 @@ COPY extra-packages /
 RUN DEBIAN_FRONTEND=noninteractive apt-get update -qy && DEBIAN_FRONTEND=noninteractive xargs -a extra-packages apt-get -qy install
 RUN rm /extra-packages
 
+COPY nsswitch.conf /etc/nsswitch.conf
+
 RUN apt-get -y clean

@@ -13,4 +13,6 @@ COPY extra-packages /
 RUN apt-get update -qy && xargs -a extra-packages apt-get -qy install
 RUN rm /extra-packages
 
+COPY nsswitch.conf /etc/nsswitch.conf
+
 RUN apt-get -y clean
