@@ -1,6 +1,8 @@
 name: build kalilinux toolbox container images
 
 on:
+  schedule:
+    - cron: '45 5 * * *'
   push:
     branches: [ "master" ]
 

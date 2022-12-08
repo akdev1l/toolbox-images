@@ -1,6 +1,8 @@
 name: build archlinux-toolbox container image
 
 on:
+  schedule:
+    - cron: '45 5 * * *'
   push:
     branches: [ "master" ]
 
